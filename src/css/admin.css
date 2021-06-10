@@ -1,0 +1,199 @@
+:root {
+  font-size: 18;
+  --text-logo:'Nova Flat', cursive;
+  --text-primary:'Poppins', sans-serif;
+  --font-golden:#856404;
+  --font-secondary:#6c757d;
+}
+
+@media (max-width: 500px) {
+  :root {
+    font-size: 16;
+  }
+}
+
+body {
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.spinnerContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  z-index: 99999999999999999999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #fff;
+  -webkit-animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+          animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  -webkit-animation-delay: -0.24s;
+          animation-delay: -0.24s;
+}
+
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  -webkit-animation-delay: -0.12s;
+          animation-delay: -0.12s;
+}
+
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+
+@-webkit-keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  background-color: #34495e;
+  z-index: 99999;
+}
+
+aside > h2 {
+  font-size: 1.5rem;
+  font-family: var(--text-primary);
+}
+
+aside .asideContainer {
+  max-height: 80%;
+  overflow: auto;
+  max-width: 90%;
+}
+
+aside .asideContainer .msg-item-container {
+  overflow: auto;
+}
+
+aside .asideContainer .msg-item-container .msg-item {
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-family: var(--text-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+aside .asideIcon {
+  position: absolute;
+  top: 50%;
+  right: -50px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: #1e7e34;
+}
+
+aside .asideIcon:hover {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.asideView {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.adminChatContainer {
+  position: fixed;
+  top: 150px;
+  bottom: 0;
+  right: 15px;
+  max-width: 30vw;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  -webkit-transform: translateX(110%);
+          transform: translateX(110%);
+  background-color: #17a2b8;
+  overflow: auto;
+  border-radius: 10px;
+}
+
+@media (max-width: 500px) {
+  .adminChatContainer {
+    max-width: 90vw;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 911px) {
+  .adminChatContainer {
+    max-width: 50vw;
+  }
+}
+
+.adminChatContainer .close-chat {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #e9ecef;
+  cursor: pointer;
+}
+
+.adminChatContainer .msgInput {
+  position: relative;
+}
+
+.adminChatContainer .msgInput .msgIcon {
+  position: absolute;
+  right: 22px;
+  top: 11px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=admin.css.map */
