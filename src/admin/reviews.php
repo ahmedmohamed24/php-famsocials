@@ -31,8 +31,9 @@ $res = $conn->select($selectCmd);
   </thead>
   <tbody>
     <?php
-    foreach ($res as $review) {
-        ?>
+    if ($res) {
+        foreach ($res as $review) {
+            ?>
     <tr>
       <th scope="row"><?php echo $review['name']; ?>
       </th>
@@ -49,6 +50,9 @@ $res = $conn->select($selectCmd);
 
     </tr>
     <?php
+        }
+    } else {
+        echo "<h1 class='alert alert-warning'>There are no reviews waiting for your approval!!!</h1>";
     }
 ?>
   </tbody>
