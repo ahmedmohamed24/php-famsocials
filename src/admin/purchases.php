@@ -13,7 +13,7 @@ require_once 'nav.php';
 
 
 <?php
-require_once '../DB/connection.php';
+require_once '../DB/Connection.php';
 $conn = new Connection();
 $selectCmd = 'SELECT * FROM `payments` WHERE 1 ';
 $res = $conn->select($selectCmd);

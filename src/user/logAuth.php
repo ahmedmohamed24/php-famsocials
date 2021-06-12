@@ -11,7 +11,7 @@ if (isset($_POST['name'], $_POST['mail'])) {
         exit('Please Enter Valid Email');
     }
 
-    require_once '../DB/connection.php';
+    require_once '../DB/Connection.php';
     $insertCmd = "INSERT INTO visitors(name,email) VALUES ('".$name."','".$mail."')";
     $conn = new Connection();
     $res = $conn->insert($insertCmd);

@@ -6,7 +6,7 @@ if (isset($_POST['name'], $_POST['stars'], $_POST['review'])) {
     $review = trim(htmlspecialchars($_POST['review']));
     $stars = trim(htmlspecialchars($_POST['stars']));
 
-    require_once '../DB/connection.php';
+    require_once '../DB/Connection.php';
     $conn = new Connection();
     $name = $conn->conn->real_escape_string($name);
     $review = $conn->conn->real_escape_string($review);

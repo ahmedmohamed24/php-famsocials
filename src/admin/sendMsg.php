@@ -16,7 +16,7 @@ if (isset($_SESSION['isAdminLogged'])) {
         //message is sent
         //first open connection with database to insert the message then display it to chat
 
-        require_once '../DB/connection.php';
+        require_once '../DB/Connection.php';
         $req = new Connection();
         //sender is 0 for user and 1 for admin
         $msg = $req->conn->real_escape_string($msg);

@@ -9,7 +9,7 @@ if (!isset($_POST['id'])) {
     exit("<script>window.location.replace('adminLogin.php');</script>");
 }
 
-    require_once '../DB/connection.php';
+    require_once '../DB/Connection.php';
     $conn = new Connection();
     $id = $conn->conn->real_escape_string($_POST['id']);
     $updateCmd = "DELETE FROM reviews  WHERE id={$id}";

@@ -18,7 +18,7 @@ if (isset($_POST['adName'], $_POST['adMail'], $_POST['adPass'])) {
     } else {
         $selectCmd = "SELECT * FROM admins WHERE email='{$mail}' and name='{$name}' and password='{$pass}'";
 
-        require_once 'DB/connection.php';
+        require_once 'DB/Connection.php';
         $conn = new Connection();
         $res = $conn->select($selectCmd);
         if (null === $res) {

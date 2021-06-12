@@ -11,7 +11,7 @@ if (isset($_POST['sendMailName'], $_POST['senMailMail'], $_POST['sendMsgContacts
     } elseif (empty($_POST['sendMsgContacts'])) {
         header('location: contacts.php');
     } else {
-        require_once 'DB/connection.php';
+        require_once 'DB/Connection.php';
         $conn = new Connection();
 
         $name = $conn->conn->real_escape_string($_POST['sendMailName']);

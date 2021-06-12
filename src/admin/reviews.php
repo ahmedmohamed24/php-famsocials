@@ -14,7 +14,7 @@ require_once 'nav.php';
 
 //get un approved reviews
 
-require_once '../DB/connection.php';
+require_once '../DB/Connection.php';
 $conn = new Connection();
 $selectCmd = 'SELECT * FROM reviews WHERE isApproved=0';
 $res = $conn->select($selectCmd);

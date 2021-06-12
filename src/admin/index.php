@@ -11,7 +11,7 @@ require_once 'nav.php';
 
 require_once 'asideContainer.html';
 
-require_once '../DB/connection.php';
+require_once '../DB/Connection.php';
 $conn = new Connection();
 $selectEmails = 'SELECT * FROM mails WHERE 1 ORDER BY id DESC';
 $res = $conn->select($selectEmails);

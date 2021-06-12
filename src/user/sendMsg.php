@@ -15,7 +15,7 @@ if (isset($_SESSION['isLogged'], $_SESSION['userId'])) {
 
         //message is sent
         //first open connection with database to insert the message then display it to chat
-        require_once '../DB/connection.php';
+        require_once '../DB/Connection.php';
         $conn = new Connection();
         //sender is 0 for user and 1 for admin
         //chat id is the foreign key for the user

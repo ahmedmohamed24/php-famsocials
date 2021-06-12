@@ -3,7 +3,7 @@ session_start();
     //service name 
 if( isset($_POST["name"]) ){
     
-    require_once '../DB/connection.php';
+    require_once '../DB/Connection.php';
     $conn=new Connection;
     $name=$conn->conn->real_escape_string($_POST["name"]);
     $selectCmd="SELECT * FROM `prices` as p INNER JOIN social as s WHERE p.planid = s.id HAVING s.name ='$name'";    

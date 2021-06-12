@@ -3,7 +3,7 @@
     if (isset($_POST['offset'])) {
         $offset = trim(htmlspecialchars($_POST['offset']));
 
-        require_once '../DB/connection.php';
+        require_once '../DB/Connection.php';
         $conn = new Connection();
         $offset = $conn->conn->real_escape_string($offset);
         $offset = $offset * 2;

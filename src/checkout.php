@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_GET['id'], $_GET['plan'], $_GET['planPrice'])) {
-    require_once 'DB/connection.php';
+    require_once 'DB/Connection.php';
     $conn = new Connection();
     $planId = $conn->conn->real_escape_string($_GET['id']);
     $plan = $conn->conn->real_escape_string($_GET['plan']);

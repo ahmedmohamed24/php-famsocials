@@ -15,7 +15,7 @@ if ('1' !== $_POST['seen'] && '0' !== $_POST['seen']) {
     //getting chat messages
     $id = trim(htmlspecialchars($_POST['id']));
 
-    require_once '../DB/connection.php';
+    require_once '../DB/Connection.php';
     $conn = new Connection();
     $id = $conn->conn->real_escape_string($id);
     $selectCmd = "SELECT * FROM messages WHERE chatId={$id}";

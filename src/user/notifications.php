@@ -1,6 +1,6 @@
 <?php
 
-require_once '../DB/connection.php';
+require_once '../DB/Connection.php';
 $conn = new Connection();
 $res = $conn->select('SELECT * FROM notifications');
 

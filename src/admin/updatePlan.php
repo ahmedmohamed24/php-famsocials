@@ -7,7 +7,7 @@ if (!isset($_SESSION['isAdminLogged'])) {
 }
 
 if (isset($_POST['id'], $_POST['plan'], $_POST['val1'], $_POST['val2'])) {
-    require_once '../DB/connection.php';
+    require_once '../DB/Connection.php';
     $conn = new Connection();
     $id = $conn->conn->real_escape_string($_POST['id']);
     $plan = $conn->conn->real_escape_string($_POST['plan']);

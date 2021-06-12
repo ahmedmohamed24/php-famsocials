@@ -6,7 +6,7 @@ session_start();
 if (isset($_SESSION['isLogged'], $_SESSION['userId'])) {
     $selectMessages = 'SELECT message , sender ,messageDate FROM messages WHERE chatid='.$_SESSION['userId'];
 
-    require_once '../DB/connection.php';
+    require_once '../DB/Connection.php';
     $req = new Connection();
     $res = $req->select($selectMessages);
 
