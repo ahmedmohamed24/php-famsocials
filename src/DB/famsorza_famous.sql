@@ -52,7 +52,7 @@ CREATE TABLE `customers` (
   `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` date NOT NULL DEFAULT current_timestamp()
+  `created_at` date NOT NULL CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -274,7 +274,7 @@ CREATE TABLE `payments` (
   `currency` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `payment_status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `accountSocial` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `created_at` date NOT NULL CURRENT_TIMESTAMP,
   `plan` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL
@@ -385,7 +385,7 @@ CREATE TABLE `transactions` (
   `amount` int(10) NOT NULL,
   `currency` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `status` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` date NOT NULL DEFAULT current_timestamp()
+  `created_at` date NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
