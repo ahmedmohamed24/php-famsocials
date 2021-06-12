@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 12, 2021 at 05:55 PM
+-- Generation Time: Jun 12, 2021 at 06:18 PM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -52,7 +52,7 @@ CREATE TABLE `customers` (
   `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` date NOT NULL CURRENT_TIMESTAMP
+  `created_at` date NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -157,7 +157,7 @@ CREATE TABLE `messages` (
   `chatid` int(11) NOT NULL,
   `sender` int(1) NOT NULL DEFAULT 0,
   `seen` int(1) NOT NULL DEFAULT 0,
-  `messageDate` timestamp NOT NULL DEFAULT current_timestamp()
+  `messageDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -274,7 +274,7 @@ CREATE TABLE `payments` (
   `currency` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `payment_status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `accountSocial` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` date NOT NULL CURRENT_TIMESTAMP,
+  `created_at` date NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `plan` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL
