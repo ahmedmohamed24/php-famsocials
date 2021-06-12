@@ -13,6 +13,7 @@ if (isset($_POST['name'], $_POST['mail'])) {
 
     require_once '../DB/Connection.php';
     $insertCmd = "INSERT INTO visitors(name,email) VALUES ('".$name."','".$mail."')";
+
     $conn = new Connection();
     $res = $conn->insert($insertCmd);
 

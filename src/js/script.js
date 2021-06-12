@@ -1,6 +1,6 @@
 const today = new Date();
-let notific=[]; //notifications array 
-let notifIndex=0; // for looping on the notifications 
+let notific=[]; //notifications array
+let notifIndex=0; // for looping on the notifications
 let offset=0;//related with views loading
 
 $(document).ready(()=>{
@@ -10,47 +10,43 @@ $(document).ready(()=>{
         $(".sm-nav-menu").toggleClass("show-sm-nav");
         $(".sm-nav").toggleClass("bg-sm-nav");
     })
-    
-    
-   
-   
-    //when is loaded 
+    //when is loaded
     //hide the spinner
     $(".spinnerContainer").css("display","none");
     $("body").css({ "overflow-y": "scroll "});
     $("body").css({ "overflow-x": "hidden"});
-    
-    //opening chat window 
+
+    //opening chat window
     $(".chatIcon").click(()=>{
         $(".chatIcon").toggleClass("chatIconAnimation")
         $("#chatContainer").toggleClass("chatContainerAnimation");
     })
-    // on clicking on log in button     
+    // on clicking on log in button
     $('#login')[0].addEventListener("click",logIn);
-    
-    // submitting reviews 
+
+    // submitting reviews
     $("#submitReview").click(submitReview);
-       
-    
-       
+
+
+
        scroll();
-       //loading reviews data from database 
+       //loading reviews data from database
        loadReviews();
-       if($( window ).width()>600){// display only on medium and large screens 
+       if($( window ).width()>600){// display only on medium and large screens
            getNotifications(); //getting the notifications from database
        }
 })
-   
+
 function scroll(){
     let windowWidth=$( window ).width();
     window.onresize = function() {
         windowWidth=$( window ).width();
     }
     const navTop=$("#nav-main").offset().top;
-    
+
     $(window).scroll(()=>{
      windowTop=$(window).scrollTop();
-     if(windowWidth>=661){ //large and medium Screens 
+     if(windowWidth>=661){ //large and medium Screens
          if(windowTop>=navTop){
              $("#nav-main").addClass("fixed-top");
              $("#nav-main").css({"background-color":"#fff"});
@@ -69,9 +65,9 @@ function scroll(){
          }
      }
  })
-    
+
 }
-   
+
 function displayMessagesContainer(){
     let disMsg=new XMLHttpRequest();
     disMsg.onreadystatechange=function(){
@@ -98,8 +94,8 @@ function displayMessagesContainer(){
                     //to be fixed at the input button
                     $(".msg-container").scrollTop(60000);
                 }
-                
-                
+
+
         }
     }
     disMsg.open("POST","user/displayMsg.php",true);
@@ -117,12 +113,12 @@ function logIn(){
                 //display message container and hide log container
                $(".login-container").css("display","none");
                $(".msg-container").css("display","block");
-               
+
                // display the container of chat and refresh it for every 3s
                displayMessagesContainer();
-                sendMessage();//give event to send message button 
-               
-               
+                sendMessage();//give event to send message button
+
+
             }
             else{
                 $("#loginAlert").addClass("alert alert-danger d-block mt-2");
@@ -131,8 +127,7 @@ function logIn(){
             }
         }
         else{
-            //failed to connect 
-            
+            //failed to connect
         }
     }
     req.open("POST","user/logAuth.php",true);
@@ -141,11 +136,11 @@ function logIn(){
 }
 //here we get the event of click
 function sendMessage(){
-    //two ways for sending messages 
-    //with icon click or enter 
+    //two ways for sending messages
+    //with icon click or enter
     $(".msgIcon").click(()=>{sendMsg();})
 }
-//here we fire the function itself 
+//here we fire the function itself
 function sendMsg(){
     $("#msgAlert").css("visibility","hidden");
         let message=$("#msg")[0].value;
@@ -158,17 +153,16 @@ function sendMsg(){
                     $("#msgAlert").css("visibility","visible");
                     $("#msgAlert").text(this.responseText);
                     displayMessagesContainer();
-                }else{                   
+                }else{
                     $("#msg")[0].value="";
                 }
-                
             }
         }
-        t0=setInterval(()=>{displayMessagesContainer();},2000);
+        setInterval(()=>{displayMessagesContainer();},2000);
         msgReq.open("POST","user/sendMsg.php",true);
         msgReq.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
         msgReq.send(`msg=${message}`);
-        
+
 }
 function stripSlashes(str)
 	{
@@ -257,16 +251,16 @@ function loadReviews(){
                                         <img src='images/star-gold.svg' alt='golden star svg icon'/>
                                         <img src='images/star-gold.svg' alt='golden star svg icon'/>
                                         <img src='images/star-gold.svg' alt='golden star svg icon'/>
-                                    </span>                                    
+                                    </span>
                                 </div>
                                 `;
                             break;
 
-                        }      
+                        }
                         $(".reviewsContainer")[0].appendChild(reviewContainer);
                     }
                 }
-                
+
             }
         }
         req.open("POST","user/loadReviews.php",true);
@@ -283,7 +277,6 @@ function submitReview(){
         if(stars[i].checked){
             starsValue=stars[i].value;
         }
-        
     }
      let req=new XMLHttpRequest();
         req.onreadystatechange=function(){
@@ -303,13 +296,13 @@ function submitReview(){
                     footer: `Something went wrong!`
                   })
               }
-              
+
             }
         }
     req.open("POST","user/addReview.php",true);
     req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-    req.send(`name=${name}&review=${review}&stars=${starsValue}`); 
-        
+    req.send(`name=${name}&review=${review}&stars=${starsValue}`);
+
 }
 
 function getNotifications(){
@@ -321,7 +314,7 @@ function getNotifications(){
             for(let notification of notifications){
                 notific.push(notification);
             }
-            setTimeout(displayNotifications,4000); // timer for displaying the notifications 
+            setTimeout(displayNotifications,4000); // timer for displaying the notifications
         }
     }
     req.open("POST","user/notifications.php",true);
@@ -333,7 +326,7 @@ function displayNotifications(){
     const notificationHeader=$(".notificationHeader")[0];
     const notificationAmt=$(".notificationAmt")[0];
     const notificationDate=$(".notificationDate")[0];
-    
+
     notification.classList.remove("notificationHide");
     notificationHeader.innerHTML=notific[notifIndex]["notification"];
     notificationAmt.innerHTML=notific[notifIndex]["amt"];

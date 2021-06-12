@@ -38,7 +38,6 @@ class Connection
     public function insert($sql)
     {
         $this->sql = $sql;
-
         if (true === $this->conn->query($this->sql)) {
             return 'true';
         }
