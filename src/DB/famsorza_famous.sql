@@ -159,14 +159,14 @@ CREATE TABLE `messages` (
   `chatid` int(11) NOT NULL,
   `sender` int(1) NOT NULL DEFAULT 0,
   `seen` int(1) NOT NULL DEFAULT 0,
-  `messageTIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `messageDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `messages`
 --
 
-INSERT INTO `messages` (`id`, `message`, `chatid`, `sender`, `seen`, `messageTIMESTAMP`) VALUES
+INSERT INTO `messages` (`id`, `message`, `chatid`, `sender`, `seen`, `messageDate`) VALUES
 (345, 'hello', 164, 0, 1, '2020-04-24 00:26:17'),
 (346, 'hi, Mr ahmed', 164, 1, 1, '2020-04-24 00:27:07'),
 (347, 'hi', 165, 0, 1, '2020-04-24 00:28:27'),
