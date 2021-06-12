@@ -1,11 +1,12 @@
-
 <?php
 session_start();
+
 require_once 'admin/header.html';
 
-if(isset($_SESSION["error"]))
-    //check for errors returned back from prev tries 
-    echo("<small class='alert alert-danger container my-5 d-block'>".$_SESSION['error']."</small>");
+if (isset($_SESSION['error'])) {
+    //check for errors returned back from prev tries
+    echo "<small class='alert alert-danger container my-5 d-block'>".$_SESSION['error'].'</small>';
+}
 ?>
 
 
@@ -21,4 +22,5 @@ if(isset($_SESSION["error"]))
 
 <?php
 session_unset();
+
 require_once 'admin/last.php';

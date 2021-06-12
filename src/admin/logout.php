@@ -3,4 +3,4 @@
 session_start();
 session_unset();
 //should be Changed when uploaded
-die("<script>window.location.replace('/GEMY');</script>");
+exit("<script>window.location.replace('/GEMY');</script>");
