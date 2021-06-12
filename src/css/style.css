@@ -394,7 +394,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 header#index-header {
-  background: url("../images/bg.jpg");
+  /* background: url("../images/bg.jpg"); */
   background-position: center center;
   background-size: cover;
   -o-object-fit: cover;
