@@ -13,7 +13,7 @@ define('PAYPAL_CURRENCY', 'USD'); // set your currency here ya bro
 
 // Connect with the database
 //"premium102.web-hosting.com","famsorza_root","uF{q?m4I02[n","famsorza_famous"
-$db = new mysqli('premium102.web-hosting.com', 'famsorza_root', 'uF{q?m4I02[n', 'famsorza_famous');
+$db = new mysqli('localhost', 'root', 'secret', 'famsocial');
 
 if ($db->connect_errno) {
     exit('Connect failed: '.$db->connect_error);
