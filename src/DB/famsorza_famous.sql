@@ -32,7 +32,7 @@ CREATE TABLE `admins` (
   `name` varchar(50) COLLATE utf8_general_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_general_ci NOT NULL,
   `password` varchar(100) COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `admins`
@@ -53,7 +53,7 @@ CREATE TABLE `customers` (
   `last_name` varchar(255) COLLATE utf8_general_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_general_ci NOT NULL,
   `created_at` date NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE `mails` (
   `name` varchar(50) COLLATE utf8_general_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_general_ci NOT NULL,
   `msg` text COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `mails`
@@ -158,7 +158,7 @@ CREATE TABLE `messages` (
   `sender` int(1) NOT NULL DEFAULT 0,
   `seen` int(1) NOT NULL DEFAULT 0,
   `messageDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `messages`
@@ -235,7 +235,7 @@ CREATE TABLE `notifications` (
   `notification` varchar(50) COLLATE utf8_general_ci NOT NULL,
   `amt` varchar(30) COLLATE utf8_general_ci NOT NULL,
   `TIME` varchar(50) COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `notifications`
@@ -278,7 +278,7 @@ CREATE TABLE `payments` (
   `plan` varchar(100) COLLATE utf8_general_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_general_ci NOT NULL,
   `name` varchar(50) COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -303,7 +303,7 @@ CREATE TABLE `prices` (
   `plane5Num` int(11) NOT NULL,
   `plane6Num` int(11) NOT NULL,
   `planeFeaturedNum` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `prices`
@@ -334,7 +334,7 @@ CREATE TABLE `reviews` (
   `stars` int(1) NOT NULL,
   `review` text COLLATE utf8_general_ci NOT NULL,
   `isApproved` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `reviews`
@@ -353,7 +353,7 @@ INSERT INTO `reviews` (`id`, `name`, `stars`, `review`, `isApproved`) VALUES
 CREATE TABLE `social` (
   `id` int(11) NOT NULL,
   `name` varchar(30) COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `social`
@@ -386,7 +386,7 @@ CREATE TABLE `transactions` (
   `currency` varchar(10) COLLATE utf8_general_ci NOT NULL,
   `status` varchar(30) COLLATE utf8_general_ci NOT NULL,
   `created_at` date NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -398,7 +398,7 @@ CREATE TABLE `visitors` (
   `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8_general_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `visitors`
