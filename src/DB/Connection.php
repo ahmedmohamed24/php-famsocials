@@ -8,7 +8,7 @@ class Connection
 
     public function __construct()
     {
-        $this->conn = new mysqli('127.0.0.1', 'root', 'secret', 'famsocial');
+        $this->conn = new mysqli('mysql', 'root', 'secret', 'famsocial');
         if ($this->conn->connect_error) {
             exit('Connection failed: '.$this->conn->connect_error);
         }
