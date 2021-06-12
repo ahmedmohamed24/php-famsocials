@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
-/* SET global sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
--- SET session sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';*/
+--
 -- Host: localhost
--- Generation Time: Jun 12, 2021 at 06:18 PM
+-- Generation Time: Jun 12, 2021 at 08:13 PM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -31,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admins` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8_general_ci NOT NULL,
-  `password` varchar(100) COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `admins`
@@ -50,12 +48,12 @@ INSERT INTO `admins` (`id`, `name`, `email`, `password`) VALUES
 --
 
 CREATE TABLE `customers` (
-  `id` varchar(255) COLLATE utf8_general_ci NOT NULL,
-  `first_name` varchar(255) COLLATE utf8_general_ci NOT NULL,
-  `last_name` varchar(255) COLLATE utf8_general_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -65,10 +63,10 @@ CREATE TABLE `customers` (
 
 CREATE TABLE `mails` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_general_ci NOT NULL,
-  `msg` text COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `msg` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `mails`
@@ -155,18 +153,18 @@ INSERT INTO `mails` (`id`, `name`, `email`, `msg`) VALUES
 
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
-  `message` text COLLATE utf8_general_ci NOT NULL,
+  `message` text COLLATE utf8_unicode_ci NOT NULL,
   `chatid` int(11) NOT NULL,
   `sender` int(1) NOT NULL DEFAULT 0,
   `seen` int(1) NOT NULL DEFAULT 0,
-  `messageTIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `messageDate` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `messages`
 --
 
-INSERT INTO `messages` (`id`, `message`, `chatid`, `sender`, `seen`, `messageTIMESTAMP`) VALUES
+INSERT INTO `messages` (`id`, `message`, `chatid`, `sender`, `seen`, `messageDate`) VALUES
 (345, 'hello', 164, 0, 1, '2020-04-24 00:26:17'),
 (346, 'hi, Mr ahmed', 164, 1, 1, '2020-04-24 00:27:07'),
 (347, 'hi', 165, 0, 1, '2020-04-24 00:28:27'),
@@ -234,10 +232,10 @@ INSERT INTO `messages` (`id`, `message`, `chatid`, `sender`, `seen`, `messageTIM
 
 CREATE TABLE `notifications` (
   `id` int(11) NOT NULL,
-  `notification` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `amt` varchar(30) COLLATE utf8_general_ci NOT NULL,
-  `TIME` varchar(50) COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `notification` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `amt` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `TIME` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `notifications`
@@ -269,18 +267,18 @@ INSERT INTO `notifications` (`id`, `notification`, `amt`, `TIME`) VALUES
 
 CREATE TABLE `payments` (
   `id` int(11) NOT NULL,
-  `payment_id` varchar(255) COLLATE utf8_general_ci NOT NULL,
-  `payer_id` varchar(255) COLLATE utf8_general_ci NOT NULL,
-  `payer_email` varchar(255) COLLATE utf8_general_ci NOT NULL,
+  `payment_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `payer_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `payer_email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `amount` float(10,2) NOT NULL,
-  `currency` varchar(255) COLLATE utf8_general_ci NOT NULL,
-  `payment_status` varchar(255) COLLATE utf8_general_ci NOT NULL,
-  `accountSocial` varchar(255) COLLATE utf8_general_ci NOT NULL,
-  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `plan` varchar(100) COLLATE utf8_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_general_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `currency` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `payment_status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `accountSocial` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `plan` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -305,7 +303,7 @@ CREATE TABLE `prices` (
   `plane5Num` int(11) NOT NULL,
   `plane6Num` int(11) NOT NULL,
   `planeFeaturedNum` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `prices`
@@ -332,11 +330,11 @@ INSERT INTO `prices` (`id`, `planId`, `featured`, `plan1`, `plan2`, `plan3`, `pl
 
 CREATE TABLE `reviews` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8_general_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `stars` int(1) NOT NULL,
-  `review` text COLLATE utf8_general_ci NOT NULL,
+  `review` text COLLATE utf8_unicode_ci NOT NULL,
   `isApproved` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `reviews`
@@ -354,8 +352,8 @@ INSERT INTO `reviews` (`id`, `name`, `stars`, `review`, `isApproved`) VALUES
 
 CREATE TABLE `social` (
   `id` int(11) NOT NULL,
-  `name` varchar(30) COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `name` varchar(30) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `social`
@@ -381,14 +379,14 @@ INSERT INTO `social` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `transactions` (
-  `id` varchar(255) COLLATE utf8_general_ci NOT NULL,
-  `customer_id` varchar(255) COLLATE utf8_general_ci NOT NULL,
-  `product` varchar(255) COLLATE utf8_general_ci NOT NULL,
+  `id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `customer_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `product` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `amount` int(10) NOT NULL,
-  `currency` varchar(10) COLLATE utf8_general_ci NOT NULL,
-  `status` varchar(30) COLLATE utf8_general_ci NOT NULL,
-  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `currency` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -398,9 +396,9 @@ CREATE TABLE `transactions` (
 
 CREATE TABLE `visitors` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `visitors`
